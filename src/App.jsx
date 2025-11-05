@@ -1,0 +1,1 @@
+export default function App() { return <div>Matatu Analytics App</div>; }

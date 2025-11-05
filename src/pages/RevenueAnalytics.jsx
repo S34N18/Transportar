@@ -1,0 +1,1 @@
+export default function RevenueAnalytics() { return <div>Revenue Analytics Page</div>; }

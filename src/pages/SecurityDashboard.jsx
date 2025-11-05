@@ -1,0 +1,1 @@
+export default function SecurityDashboard() { return <div>Security Dashboard Page</div>; }

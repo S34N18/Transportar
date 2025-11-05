@@ -1,0 +1,1 @@
+export default function FleetMonitor() { return <div>Fleet Monitor Page</div>; }

@@ -1,0 +1,1 @@
+export const formatCurrency = (val) => `KSh ${Number(val).toLocaleString()}`;
