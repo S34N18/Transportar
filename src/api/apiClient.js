@@ -1,6 +1,8 @@
 // src/api/apiClient.js
+// API client configuration with authentication interceptors for handling tokens and refresh logic
 import axios from 'axios';
 
+// Create axios instance with default configuration
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
   timeout: 10000,
@@ -9,7 +11,7 @@ const apiClient = axios.create({
   },
 });
 
-// Request interceptor - Add auth token
+// Request interceptor to automatically add authorization token to requests
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('accessToken');
@@ -23,7 +25,7 @@ apiClient.interceptors.request.use(
   }
 );
 
-// Response interceptor - Handle token refresh
+// Response interceptor to handle token refresh on 401 errors
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {

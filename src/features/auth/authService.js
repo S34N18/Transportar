@@ -1,17 +1,19 @@
 // src/features/auth/authService.js
+// Authentication service functions for login, registration, and user management
 import apiClient from '../../api/apiClient';
 
 export const authService = {
-  // Login
+  // Authenticate user with phone and password
   async login(phone, password) {
     try {
       const response = await apiClient.post('/auth/login', { phone, password });
       const { accessToken, refreshToken, user } = response.data;
-      
+
+      // Store authentication tokens and user data in localStorage
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
       localStorage.setItem('user', JSON.stringify(user));
-      
+
       return { success: true, user };
     } catch (error) {
       return {
@@ -21,7 +23,7 @@ export const authService = {
     }
   },
 
-  // Register
+  // Register a new user account
   async register(userData) {
     try {
       const response = await apiClient.post('/auth/register', userData);
@@ -34,7 +36,7 @@ export const authService = {
     }
   },
 
-  // Get current user
+  // Fetch current authenticated user information
   async getCurrentUser() {
     try {
       const response = await apiClient.get('/auth/me');
@@ -44,20 +46,20 @@ export const authService = {
     }
   },
 
-  // Logout
+  // Clear authentication data from localStorage
   logout() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('user');
   },
 
-  // Get stored user
+  // Retrieve user data from localStorage
   getStoredUser() {
     const userStr = localStorage.getItem('user');
     return userStr ? JSON.parse(userStr) : null;
   },
 
-  // Check if authenticated
+  // Check if user has valid access token
   isAuthenticated() {
     return !!localStorage.getItem('accessToken');
   },
