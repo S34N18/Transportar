@@ -1,7 +1,7 @@
 // Login component for user authentication
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../context/AuthContext';
 import { Eye, EyeOff, Phone, Lock, Bus } from 'lucide-react';
 
 export default function Login() {
@@ -37,48 +37,49 @@ export default function Login() {
   };
 
   // Handle form submission and authentication
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError('');
+  setLoading(true);
 
-    // Validate phone number
-    if (!formData.phone || formData.phone.length < 9) {
-      setError('Please enter a valid phone number');
-      setLoading(false);
-      return;
-    }
-
-    // Validate password
-    if (!formData.password || formData.password.length < 6) {
-      setError('Password must be at least 6 characters');
-      setLoading(false);
-      return;
-    }
-
-    // Attempt login
-    const result = await login(formData.phone, formData.password);
-
-    if (result.success) {
-      // Redirect based on user role
-      const role = result.user?.role;
-      if (role === 'passenger') {
-        navigate('/passenger/dashboard');
-      } else if (role === 'driver') {
-        navigate('/driver/dashboard');
-      } else if (role === 'sacco_admin') {
-        navigate('/admin/dashboard');
-      } else if (role === 'system_admin') {
-        navigate('/system/dashboard');
-      } else {
-        navigate('/dashboard');
-      }
-    } else {
-      setError(result.error);
-    }
-
+  // Validate phone number
+  if (!formData.phone || formData.phone.length < 9) {
+    setError('Please enter a valid phone number');
     setLoading(false);
-  };
+    return;
+  }
+
+  // Validate password
+  if (!formData.password || formData.password.length < 6) {
+    setError('Password must be at least 6 characters');
+    setLoading(false);
+    return;
+  }
+
+  // Attempt login
+  const result = await login(formData.phone, formData.password);
+
+  if (result.success) {
+    // Redirect based on user role
+    const role = result.user?.role;
+    
+    if (role === 'passenger') {
+      navigate('/passenger/dashboard');
+    } else if (role === 'driver') {
+      navigate('/driver/dashboard');
+    } else if (role === 'sacco_admin') {
+      navigate('/sacco/dashboard');
+    } else if (role === 'system_admin') {
+      navigate('/system/dashboard');
+    } else {
+      navigate('/login');
+    }
+  } else {
+    setError(result.error);
+  }
+
+  setLoading(false);
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-4">

@@ -1,205 +1,204 @@
-// Menu configurations for different user roles
 import { 
-  LayoutDashboard, Bus, Ticket, MapPin, CreditCard, User, Settings,
-  Play, Camera, History, Package, Users, TrendingUp, Shield,
-  Building, Lock, BarChart3, UserCog
+  LayoutDashboard, 
+  Bus, 
+  Ticket, 
+  MapPin, 
+  Wallet, 
+  User, 
+  Settings,
+  Route,
+  Car,
+  Users,
+  BarChart3,
+  PlayCircle,
+  QrCode,
+  Clock,
+  Building2,
+  Shield,
+  Lock,
+  Activity
 } from 'lucide-react';
 
+// Navigation menus for each role
 export const menuConfig = {
   passenger: [
-    { 
-      id: 'dashboard', 
-      label: 'Dashboard', 
-      icon: LayoutDashboard, 
-      path: '/dashboard' 
+    {
+      label: 'Dashboard',
+      icon: LayoutDashboard,
+      path: '/passenger/dashboard',
     },
-    { 
-      id: 'book-trip', 
-      label: 'Book Trip', 
-      icon: Bus, 
-      path: '/book-trip' 
+    {
+      label: 'Book Trip',
+      icon: Bus,
+      path: '/passenger/book',
     },
-    { 
-      id: 'my-tickets', 
-      label: 'My Tickets', 
-      icon: Ticket, 
-      path: '/my-tickets' 
+    {
+      label: 'My Tickets',
+      icon: Ticket,
+      path: '/passenger/tickets',
     },
-    { 
-      id: 'track-bus', 
-      label: 'Track Bus', 
-      icon: MapPin, 
-      path: '/track-bus' 
+    {
+      label: 'Track Bus',
+      icon: MapPin,
+      path: '/passenger/track',
     },
-    { 
-      id: 'payments', 
-      label: 'Payment History', 
-      icon: CreditCard, 
-      path: '/payments' 
+    {
+      label: 'Payment History',
+      icon: Wallet,
+      path: '/passenger/payments',
     },
-    { 
-      id: 'profile', 
-      label: 'My Profile', 
-      icon: User, 
-      path: '/profile' 
+    {
+      label: 'My Profile',
+      icon: User,
+      path: '/passenger/profile',
     },
-    { 
-      id: 'settings', 
-      label: 'Settings', 
-      icon: Settings, 
-      path: '/settings' 
-    }
+    {
+      label: 'Settings',
+      icon: Settings,
+      path: '/passenger/settings',
+    },
   ],
 
   driver: [
-    { 
-      id: 'dashboard', 
-      label: 'Dashboard', 
-      icon: LayoutDashboard, 
-      path: '/driver/dashboard' 
+    {
+      label: 'Dashboard',
+      icon: LayoutDashboard,
+      path: '/driver/dashboard',
     },
-    { 
-      id: 'my-trips', 
-      label: 'My Trips', 
-      icon: Bus, 
-      path: '/driver/trips' 
+    {
+      label: 'My Trips',
+      icon: Bus,
+      path: '/driver/trips',
     },
-    { 
-      id: 'start-trip', 
-      label: 'Start Trip', 
-      icon: Play, 
-      path: '/driver/start-trip' 
+    {
+      label: 'Start Trip',
+      icon: PlayCircle,
+      path: '/driver/start-trip',
     },
-    { 
-      id: 'scan-qr', 
-      label: 'Scan QR Code', 
-      icon: Camera, 
-      path: '/driver/scan' 
+    {
+      label: 'Scan QR Code',
+      icon: QrCode,
+      path: '/driver/scan',
     },
-    { 
-      id: 'current-route', 
-      label: 'Current Route', 
-      icon: MapPin, 
-      path: '/driver/route' 
+    {
+      label: 'Current Route',
+      icon: MapPin,
+      path: '/driver/route',
     },
-    { 
-      id: 'history', 
-      label: 'Trip History', 
-      icon: History, 
-      path: '/driver/history' 
+    {
+      label: 'Trip History',
+      icon: Clock,
+      path: '/driver/history',
     },
-    { 
-      id: 'profile', 
-      label: 'Profile', 
-      icon: User, 
-      path: '/driver/profile' 
-    }
+    {
+      label: 'Profile',
+      icon: User,
+      path: '/driver/profile',
+    },
   ],
 
   sacco_admin: [
-    { 
-      id: 'dashboard', 
-      label: 'Dashboard', 
-      icon: LayoutDashboard, 
-      path: '/sacco/dashboard' 
+    {
+      label: 'Dashboard',
+      icon: LayoutDashboard,
+      path: '/admin/dashboard',
     },
-    { 
-      id: 'routes', 
-      label: 'Routes', 
-      icon: MapPin, 
-      path: '/sacco/routes' 
+    {
+      label: 'Routes',
+      icon: Route,
+      path: '/admin/routes',
     },
-    { 
-      id: 'vehicles', 
-      label: 'Vehicles', 
-      icon: Bus, 
-      path: '/sacco/vehicles' 
+    {
+      label: 'Vehicles',
+      icon: Car,
+      path: '/admin/vehicles',
     },
-    { 
-      id: 'drivers', 
-      label: 'Drivers', 
-      icon: UserCog, 
-      path: '/sacco/drivers' 
+    {
+      label: 'Drivers',
+      icon: Users,
+      path: '/admin/drivers',
     },
-    { 
-      id: 'trips', 
-      label: 'Trips', 
-      icon: Package, 
-      path: '/sacco/trips' 
+    {
+      label: 'Trips',
+      icon: Bus,
+      path: '/admin/trips',
     },
-    { 
-      id: 'revenue', 
-      label: 'Revenue Reports', 
-      icon: CreditCard, 
-      path: '/sacco/revenue' 
+    {
+      label: 'Revenue',
+      icon: Wallet,
+      path: '/admin/revenue',
     },
-    { 
-      id: 'analytics', 
-      label: 'Analytics', 
-      icon: TrendingUp, 
-      path: '/sacco/analytics' 
+    {
+      label: 'Analytics',
+      icon: BarChart3,
+      path: '/admin/analytics',
     },
-    { 
-      id: 'passengers', 
-      label: 'Passengers', 
-      icon: Users, 
-      path: '/sacco/passengers' 
+    {
+      label: 'Passengers',
+      icon: Users,
+      path: '/admin/passengers',
     },
-    { 
-      id: 'settings', 
-      label: 'Settings', 
-      icon: Settings, 
-      path: '/sacco/settings' 
-    }
+    {
+      label: 'Settings',
+      icon: Settings,
+      path: '/admin/settings',
+    },
   ],
 
   system_admin: [
-    { 
-      id: 'overview', 
-      label: 'System Overview', 
-      icon: LayoutDashboard, 
-      path: '/admin/overview' 
+    {
+      label: 'System Overview',
+      icon: LayoutDashboard,
+      path: '/system/dashboard',
     },
-    { 
-      id: 'saccos', 
-      label: 'Saccos', 
-      icon: Building, 
-      path: '/admin/saccos' 
+    {
+      label: 'Saccos',
+      icon: Building2,
+      path: '/system/saccos',
     },
-    { 
-      id: 'users', 
-      label: 'All Users', 
-      icon: Users, 
-      path: '/admin/users' 
+    {
+      label: 'All Users',
+      icon: Users,
+      path: '/system/users',
     },
-    { 
-      id: 'security', 
-      label: 'Security Logs', 
-      icon: Lock, 
-      path: '/admin/security' 
+    {
+      label: 'Security Logs',
+      icon: Shield,
+      path: '/system/security',
     },
-    { 
-      id: 'access', 
-      label: 'Access Control', 
-      icon: Shield, 
-      path: '/admin/access' 
+    {
+      label: 'Access Control',
+      icon: Lock,
+      path: '/system/access',
     },
-    { 
-      id: 'analytics', 
-      label: 'System Analytics', 
-      icon: BarChart3, 
-      path: '/admin/analytics' 
+    {
+      label: 'System Analytics',
+      icon: Activity,
+      path: '/system/analytics',
     },
-    { 
-      id: 'settings', 
-      label: 'System Settings', 
-      icon: Settings, 
-      path: '/admin/settings' 
-    }
-  ]
+    {
+      label: 'Settings',
+      icon: Settings,
+      path: '/system/settings',
+    },
+    {
+     label: 'Routes',
+     path: '/sacco/routes',
+     icon: MapPin,
+     roles: ['sacco_admin']
+   },
+    {
+  label: 'Vehicles',
+  path: '/sacco/vehicles',
+  icon: Car,
+  roles: ['sacco_admin']  
+  },
+  
+
+  ],
 };
 
-// Helper function to get menu items for a specific role
+// Get menu items based on user role
 export const getMenuForRole = (role) => {
   return menuConfig[role] || menuConfig.passenger;
 };

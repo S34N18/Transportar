@@ -1,7 +1,7 @@
 // Registration component for new user account creation
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../context/AuthContext';
 import { Eye, EyeOff, Phone, Lock, User, Mail, Bus } from 'lucide-react';
 
 export default function Register() {
