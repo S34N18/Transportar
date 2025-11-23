@@ -9,35 +9,36 @@ import Login from '../features/auth/Login';
 import Register from '../features/auth/Register';
 import ForgotPassword from '../features/auth/ForgotPassword';
 
+// Dashboard pages (from separate dashboards folder)
+import PassengerDashboard from '../dashboards/PassengerDashboard';
+import DriverDashboard from '../dashboards/DriverDashboard';
+import SaccoDashboard from '../dashboards/AdminDashboard';
+import SystemDashboard from '../dashboards/SystemDashboard';
+
 // Passenger pages
-import PassengerDashboard from '../features/passenger/dashboard';
 import BookTrip from '../features/passenger/BookTrip';
 import MyTickets from '../features/passenger/MyTickets';
 import TrackBus from '../features/passenger/TrackBus';
 import PaymentHistory from '../features/passenger/PaymentHistory';
 
 // Driver pages
-import DriverDashboard from '../features/driver/dashboard';
 import MyTrips from '../features/driver/MyTrips';
 import StartTrip from '../features/driver/StartTrip';
 import ScanQR from '../features/driver/ScanQR';
 
-// Sacco Admin pages (rename AdminDashboard to SaccoDashboard)
-import SaccoDashboard from '../features/sacco/dashboard'; // This is your AdminDashboard.jsx
+// Sacco Admin pages
 import RouteManager from '../features/sacco/RouteManager';
 import VehicleManager from '../features/sacco/VehicleManager';
 import DriverManager from '../features/sacco/DriverManager';
 import TripManager from '../features/sacco/TripManager';
 
 // System Admin pages
-import SystemDashboard from '../features/system/dashboard'; // This is your SystemDashboard.jsx
 import SaccoManager from '../features/system/SaccoManager';
 import UserManager from '../features/system/UserManager';
 import SecurityDashboard from '../features/system/SecurityDashboard';
 
 // Shared pages
-import Profile from '../features/shared/Profile';
-import Settings from '../features/shared/Settings';
+import ProfileSettings from '../features/shared/Profile';
 import NotFound from '../features/shared/NotFound';
 
 const AppRouter = () => {
@@ -239,12 +240,13 @@ const AppRouter = () => {
           />
 
           {/* Shared Routes (All authenticated users) */}
+          {/* Global shared routes */}
           <Route
             path="/profile"
             element={
               <ProtectedRoute>
                 <DashboardLayout>
-                  <Profile />
+                  <ProfileSettings />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -254,7 +256,92 @@ const AppRouter = () => {
             element={
               <ProtectedRoute>
                 <DashboardLayout>
-                  <Settings />
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Role-based shared routes (for backward compatibility) */}
+          <Route
+            path="/passenger/profile"
+            element={
+              <ProtectedRoute allowedRoles={['passenger']}>
+                <DashboardLayout>
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/passenger/settings"
+            element={
+              <ProtectedRoute allowedRoles={['passenger']}>
+                <DashboardLayout>
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/driver/profile"
+            element={
+              <ProtectedRoute allowedRoles={['driver']}>
+                <DashboardLayout>
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/driver/settings"
+            element={
+              <ProtectedRoute allowedRoles={['driver']}>
+                <DashboardLayout>
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/sacco/profile"
+            element={
+              <ProtectedRoute allowedRoles={['sacco_admin']}>
+                <DashboardLayout>
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/sacco/settings"
+            element={
+              <ProtectedRoute allowedRoles={['sacco_admin']}>
+                <DashboardLayout>
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/system/profile"
+            element={
+              <ProtectedRoute allowedRoles={['system_admin']}>
+                <DashboardLayout>
+                  <ProfileSettings />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/system/settings"
+            element={
+              <ProtectedRoute allowedRoles={['system_admin']}>
+                <DashboardLayout>
+                  <ProfileSettings />
                 </DashboardLayout>
               </ProtectedRoute>
             }

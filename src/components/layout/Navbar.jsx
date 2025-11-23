@@ -45,6 +45,29 @@ export default function Navbar() {
     return labels[role] || role;
   };
 
+  // Get the correct path prefix based on user role
+  const getRolePrefix = (role) => {
+    const prefixes = {
+      passenger: 'passenger',
+      driver: 'driver',
+      sacco_admin: 'sacco',
+      system_admin: 'system',
+    };
+    return prefixes[role] || 'passenger';
+  };
+
+  const rolePrefix = getRolePrefix(user?.role);
+
+  const handleProfileClick = () => {
+    setShowDropdown(false);
+    navigate(`/${rolePrefix}/profile`);
+  };
+
+  const handleSettingsClick = () => {
+    setShowDropdown(false);
+    navigate(`/${rolePrefix}/settings`);
+  };
+
   return (
     <nav className="bg-white border-b border-gray-200 h-16 fixed top-0 right-0 left-64 z-10 transition-all duration-300">
       <div className="h-full px-6 flex items-center justify-between">
@@ -96,10 +119,7 @@ export default function Navbar() {
                 </div>
 
                 <button
-                  onClick={() => {
-                    setShowDropdown(false);
-                    navigate(`/${user?.role}/profile`);
-                  }}
+                  onClick={handleProfileClick}
                   className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition"
                 >
                   <User className="w-4 h-4" />
@@ -107,10 +127,7 @@ export default function Navbar() {
                 </button>
 
                 <button
-                  onClick={() => {
-                    setShowDropdown(false);
-                    navigate(`/${user?.role}/settings`);
-                  }}
+                  onClick={handleSettingsClick}
                   className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition"
                 >
                   <Settings className="w-4 h-4" />

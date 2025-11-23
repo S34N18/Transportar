@@ -30,17 +30,17 @@ export const menuConfig = {
     {
       label: 'Book Trip',
       icon: Bus,
-      path: '/passenger/book',
+      path: '/passenger/book-trip',  // Fixed: was '/passenger/book'
     },
     {
       label: 'My Tickets',
       icon: Ticket,
-      path: '/passenger/tickets',
+      path: '/passenger/my-tickets',  // Fixed: was '/passenger/tickets'
     },
     {
       label: 'Track Bus',
       icon: MapPin,
-      path: '/passenger/track',
+      path: '/passenger/track-bus',  // Fixed: was '/passenger/track'
     },
     {
       label: 'Payment History',
@@ -81,19 +81,14 @@ export const menuConfig = {
       path: '/driver/scan',
     },
     {
-      label: 'Current Route',
-      icon: MapPin,
-      path: '/driver/route',
-    },
-    {
-      label: 'Trip History',
-      icon: Clock,
-      path: '/driver/history',
-    },
-    {
       label: 'Profile',
       icon: User,
       path: '/driver/profile',
+    },
+    {
+      label: 'Settings',
+      icon: Settings,
+      path: '/driver/settings',
     },
   ],
 
@@ -101,47 +96,37 @@ export const menuConfig = {
     {
       label: 'Dashboard',
       icon: LayoutDashboard,
-      path: '/admin/dashboard',
+      path: '/sacco/dashboard',  // Fixed: was '/admin/dashboard'
     },
     {
       label: 'Routes',
       icon: Route,
-      path: '/admin/routes',
+      path: '/sacco/routes',  // Fixed: was '/admin/routes'
     },
     {
       label: 'Vehicles',
       icon: Car,
-      path: '/admin/vehicles',
+      path: '/sacco/vehicles',  // Fixed: was '/admin/vehicles'
     },
     {
       label: 'Drivers',
       icon: Users,
-      path: '/admin/drivers',
+      path: '/sacco/drivers',  // Fixed: was '/admin/drivers'
     },
     {
       label: 'Trips',
       icon: Bus,
-      path: '/admin/trips',
+      path: '/sacco/trips',  // Fixed: was '/admin/trips'
     },
     {
-      label: 'Revenue',
-      icon: Wallet,
-      path: '/admin/revenue',
-    },
-    {
-      label: 'Analytics',
-      icon: BarChart3,
-      path: '/admin/analytics',
-    },
-    {
-      label: 'Passengers',
-      icon: Users,
-      path: '/admin/passengers',
+      label: 'Profile',
+      icon: User,
+      path: '/sacco/profile',
     },
     {
       label: 'Settings',
       icon: Settings,
-      path: '/admin/settings',
+      path: '/sacco/settings',  // Fixed: was '/admin/settings'
     },
   ],
 
@@ -152,49 +137,30 @@ export const menuConfig = {
       path: '/system/dashboard',
     },
     {
-      label: 'Saccos',
+      label: 'Manage Saccos',
       icon: Building2,
       path: '/system/saccos',
     },
     {
-      label: 'All Users',
+      label: 'User Management',
       icon: Users,
       path: '/system/users',
     },
     {
-      label: 'Security Logs',
+      label: 'Security Dashboard',
       icon: Shield,
       path: '/system/security',
     },
     {
-      label: 'Access Control',
-      icon: Lock,
-      path: '/system/access',
-    },
-    {
-      label: 'System Analytics',
-      icon: Activity,
-      path: '/system/analytics',
+      label: 'Profile',
+      icon: User,
+      path: '/system/profile',
     },
     {
       label: 'Settings',
       icon: Settings,
       path: '/system/settings',
     },
-    {
-     label: 'Routes',
-     path: '/sacco/routes',
-     icon: MapPin,
-     roles: ['sacco_admin']
-   },
-    {
-  label: 'Vehicles',
-  path: '/sacco/vehicles',
-  icon: Car,
-  roles: ['sacco_admin']  
-  },
-  
-
   ],
 };
 
