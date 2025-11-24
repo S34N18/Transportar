@@ -38,8 +38,9 @@ import UserManager from '../features/system/UserManager';
 import SecurityDashboard from '../features/system/SecurityDashboard';
 
 // Shared pages
-import ProfileSettings from '../features/shared/Profile';
+import Profile from '../features/shared/Profile';
 import NotFound from '../features/shared/NotFound';
+import Settings from '../features/shared/Settings';
 
 const AppRouter = () => {
   return (
@@ -246,7 +247,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Profile />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -256,7 +257,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Settings />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -268,7 +269,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['passenger']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Profile />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -278,7 +279,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['passenger']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Settings />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -289,7 +290,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['driver']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Profile />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -299,7 +300,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['driver']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Settings />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -310,7 +311,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['sacco_admin']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Profile />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -320,7 +321,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['sacco_admin']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Settings />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -331,7 +332,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['system_admin']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Profile />
                 </DashboardLayout>
               </ProtectedRoute>
             }
@@ -341,7 +342,7 @@ const AppRouter = () => {
             element={
               <ProtectedRoute allowedRoles={['system_admin']}>
                 <DashboardLayout>
-                  <ProfileSettings />
+                  <Settings />
                 </DashboardLayout>
               </ProtectedRoute>
             }
